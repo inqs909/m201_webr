@@ -4,6 +4,7 @@ project:
 
 website:
   title: "m201_webr"
+  site-url: www.inqs.info/m201_f23
 
 format:
   html:
