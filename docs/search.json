@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "lectures/slr.html#table-of-contents",
+    "href": "lectures/slr.html#table-of-contents",
+    "title": "Simple Linear Regression",
+    "section": "Table of Contents",
+    "text": "Table of Contents"
+  },
+  {
+    "objectID": "lectures/slr.html#motivating-example",
+    "href": "lectures/slr.html#motivating-example",
+    "title": "Simple Linear Regression",
+    "section": "Motivating Example",
+    "text": "Motivating Example\nThe spotify_track_data data set from the billboard package contains information about a select group of songs and metrics.\n\n\nCode\nlibrary(billboard)\n?spotify_track_data\n\n\n\n  🟡 Loading\n    webR..."
+  },
+  {
+    "objectID": "lectures/slr.html#viewing-the-data",
+    "href": "lectures/slr.html#viewing-the-data",
+    "title": "Simple Linear Regression",
+    "section": "Viewing The Data",
+    "text": "Viewing The Data\n\n\nCode\nspotify_track_data |&gt; summary()\nspotify_track_data |&gt; head()\nspotify_track_data |&gt; select(track_name, artist_name) |&gt; slice_sample(n = 3)\n\n\n\n  🟡 Loading\n    webR..."
+  },
+  {
+    "objectID": "lectures/slr.html#descriptive-statistics",
+    "href": "lectures/slr.html#descriptive-statistics",
+    "title": "Simple Linear Regression",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\nLet’s look at some descriptive statistics for loudness and energy\n\n\nCode\nspotify_track_data |&gt; select(loudness, energy) |&gt; summary()\nspotify_track_data |&gt; select(loudness, energy) |&gt; sapply(sd)\n\n\n\n  🟡 Loading\n    webR..."
+  },
+  {
+    "objectID": "lectures/slr.html#visualizing-data",
+    "href": "lectures/slr.html#visualizing-data",
+    "title": "Simple Linear Regression",
+    "section": "Visualizing Data",
+    "text": "Visualizing Data\n\n\nCode\nspotify_track_data |&gt; ggplot(aes(loudness)) + geom_histogram()\nspotify_track_data |&gt; ggplot(aes(energy)) + geom_histogram()\n\n\n\n  🟡 Loading\n    webR..."
+  },
+  {
+    "objectID": "lectures/slr.html#bivariate-analysis-1",
+    "href": "lectures/slr.html#bivariate-analysis-1",
+    "title": "Simple Linear Regression",
+    "section": "Bivariate Analysis",
+    "text": "Bivariate Analysis\nWe are trying to understand how are 2 variable are related to each other.\n\nDoes one variable dictate another variable?\n\n\nSince both variables are continuous, we can create a scatter plot."
+  },
+  {
+    "objectID": "lectures/slr.html#related-variables-and-plotting",
+    "href": "lectures/slr.html#related-variables-and-plotting",
+    "title": "Simple Linear Regression",
+    "section": "Related Variables and Plotting",
+    "text": "Related Variables and Plotting\n\n\nCode\nspotify_track_data |&gt; select(loudness, energy) |&gt; head()\n\n\n# A tibble: 6 × 2\n  loudness energy\n     &lt;dbl&gt;  &lt;dbl&gt;\n1   -12.8   0.389\n2   -15.8   0.186\n3    -8.95  0.462\n4   -12.4   0.168\n5   -14.8   0.141\n6   -14.1   0.391"
+  },
+  {
+    "objectID": "lectures/slr.html#visualizing-data-1",
+    "href": "lectures/slr.html#visualizing-data-1",
+    "title": "Simple Linear Regression",
+    "section": "Visualizing Data",
+    "text": "Visualizing Data\n\n\nCode\nspotify_track_data |&gt; ggplot(aes(loudness, energy)) + geom_point()"
+  },
+  {
+    "objectID": "lectures/slr.html#what-are-we-looking-for",
+    "href": "lectures/slr.html#what-are-we-looking-for",
+    "title": "Simple Linear Regression",
+    "section": "What are we looking for?",
+    "text": "What are we looking for?"
+  },
+  {
+    "objectID": "lectures/slr.html#understanding-the-relationship",
+    "href": "lectures/slr.html#understanding-the-relationship",
+    "title": "Simple Linear Regression",
+    "section": "Understanding the Relationship",
+    "text": "Understanding the Relationship\n\n\nCode\nspotify_track_data |&gt; ggplot(aes(loudness, energy)) + \n  geom_point() +\n  theme_bw() +\n  theme(axis.text = element_text(size = 28),\n        axis.title = element_text(size = 32))"
+  },
+  {
+    "objectID": "lectures/slr.html#fitting-a-line",
+    "href": "lectures/slr.html#fitting-a-line",
+    "title": "Simple Linear Regression",
+    "section": "Fitting a Line",
+    "text": "Fitting a Line"
+  },
+  {
+    "objectID": "lectures/slr.html#simple-linear-regression-1",
+    "href": "lectures/slr.html#simple-linear-regression-1",
+    "title": "Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression"
+  },
+  {
+    "objectID": "lectures/slr.html#regression-coefficients",
+    "href": "lectures/slr.html#regression-coefficients",
+    "title": "Simple Linear Regression",
+    "section": "Regression Coefficients",
+    "text": "Regression Coefficients"
+  },
+  {
+    "objectID": "lectures/slr.html#residuals-1",
+    "href": "lectures/slr.html#residuals-1",
+    "title": "Simple Linear Regression",
+    "section": "Residuals",
+    "text": "Residuals"
+  },
+  {
+    "objectID": "lectures/slr.html#sum-of-residuals",
+    "href": "lectures/slr.html#sum-of-residuals",
+    "title": "Simple Linear Regression",
+    "section": "Sum of Residuals",
+    "text": "Sum of Residuals"
+  },
+  {
+    "objectID": "lectures/slr.html#sum-of-residual-squares",
+    "href": "lectures/slr.html#sum-of-residual-squares",
+    "title": "Simple Linear Regression",
+    "section": "Sum of Residual Squares",
+    "text": "Sum of Residual Squares"
+  },
+  {
+    "objectID": "lectures/slr.html#correlation-1",
+    "href": "lectures/slr.html#correlation-1",
+    "title": "Simple Linear Regression",
+    "section": "Correlation",
+    "text": "Correlation"
+  },
+  {
+    "objectID": "lectures/slr.html#magnitude-to-slr",
+    "href": "lectures/slr.html#magnitude-to-slr",
+    "title": "Simple Linear Regression",
+    "section": "Magnitude to SLR",
+    "text": "Magnitude to SLR"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "m201_webr",
+    "section": "",
+    "text": "This website contains Webr information for Math 201."
+  },
+  {
+    "objectID": "quizzes/m201_1_1.html",
+    "href": "quizzes/m201_1_1.html",
+    "title": "m201_webr",
+    "section": "",
+    "text": "🟡 Loading\n    webR..."
+  }
+]
