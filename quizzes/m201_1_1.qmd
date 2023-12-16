@@ -1,0 +1,12 @@
+---
+format: html
+engine: knitr
+filters:
+  - webr
+webr:
+  packages: ['ggplot2', 'dplyr', 'billboard']
+---
+
+```{webr-r}
+
+```

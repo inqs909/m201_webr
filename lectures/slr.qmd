@@ -1,0 +1,191 @@
+---
+title: "Simple Linear Regression"
+format:
+  revealjs:
+    title-slide-attributes:
+        data-state: "hide-menubar"
+    scrollable: true
+    menu: false
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
+    incremental: false
+    code-fold: true
+    chalkboard:
+      src: notes/chalkboard_1a.json
+      storage: chalkboard_pres
+      theme: whiteboard
+      chalk-width: 4
+      buttons: false
+    simplemenu:
+      barhtml:
+        header: ""
+        footer: "<div class='menubar'><ul class='menu'></ul><div class='slide-number'></div></div>"
+      scale: 0.67
+revealjs-plugins:
+  - simplemenu
+filters:
+  - webr
+webr:
+  packages: ['ggplot2', 'dplyr', 'tibble', 'broom', 'billboard']
+---
+
+## Table of Contents {data-state="hide-menubar"}
+
+<ul class="menu">
+
+<ul>
+
+```{webr-r}
+#| context: setup
+webr::install('csucistats',
+  repos = c('https://inqs909.r-universe.dev',
+            'https://repo.r-wasm.org'))
+library(csucistats)
+```
+
+# Univariate Analysis {data-stack-name="Univariate"}
+
+```{r}
+#| label: setup
+#| include: false 
+library(billboard)
+library(tidyverse)
+```
+
+## Motivating Example
+
+The `spotify_track_data` data set from the `billboard` package contains information about a select group of songs and metrics.
+
+```{r}
+#| echo: true
+#| eval: false
+library(billboard)
+?spotify_track_data
+```
+
+```{webr-r}
+
+```
+
+## Viewing The Data
+
+```{r}
+#| echo: true
+#| eval: false
+
+spotify_track_data |> summary()
+spotify_track_data |> head()
+spotify_track_data |> select(track_name, artist_name) |> slice_sample(n = 3)
+
+```
+
+```{webr-r}
+
+```
+
+## Descriptive Statistics
+
+Let's look at some descriptive statistics for `loudness` and `energy`
+
+```{r}
+#| echo: true
+#| eval: false
+spotify_track_data |> select(loudness, energy) |> summary()
+spotify_track_data |> select(loudness, energy) |> sapply(sd)
+```
+
+```{webr-r}
+
+```
+
+## Visualizing Data
+
+```{r}
+#| echo: true
+#| eval: false
+
+spotify_track_data |> ggplot(aes(loudness)) + geom_histogram()
+spotify_track_data |> ggplot(aes(energy)) + geom_histogram()
+
+```
+
+```{webr-r}
+
+```
+
+# Bivariate Analysis {data-stack-name="Bivariate"}
+
+## Bivariate Analysis
+
+We are trying to understand how are 2 variable are related to each other.
+
+::: fragment
+Does one variable dictate another variable?
+:::
+
+::: fragment
+Since both variables are continuous, we can create a scatter plot.
+:::
+
+## Related Variables and Plotting
+
+```{r}
+#| echo: true
+spotify_track_data |> select(loudness, energy) |> head()
+```
+
+## Visualizing Data
+
+```{r}
+#| echo: true
+#| eval: false
+
+spotify_track_data |> ggplot(aes(loudness, energy)) + geom_point()
+```
+
+## What are we looking for?
+
+::: columns
+::: {.column width="50%"}
+![](https://media.tenor.com/Rxz2fN_-PrQAAAAC/congratulations-celebrate.gif)
+:::
+
+::: {.column width="50%"}
+![](https://media.tenor.com/zV3BHt9q-FAAAAAC/diwali.gif)
+:::
+:::
+
+## Understanding the Relationship
+
+```{r}
+#| echo: true
+
+spotify_track_data |> ggplot(aes(loudness, energy)) + 
+  geom_point() +
+  theme_bw() +
+  theme(axis.text = element_text(size = 28),
+        axis.title = element_text(size = 32))
+```
+
+# Simple Linear Regression {data-stack-name="SLR"}
+
+## Fitting a Line
+
+## Simple Linear Regression
+
+## Regression Coefficients
+
+# Residuals {data-stack-name="Residuals"}
+
+## Residuals
+
+## Sum of Residuals
+
+## Sum of Residual Squares
+
+# Correlation {data-stack-name="Correlations"}
+
+## Correlation
+
+## Magnitude to SLR
